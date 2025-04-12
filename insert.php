@@ -9,8 +9,6 @@ $conn = mysqli_connect($_SERVER, $_username, $_Password, $_Database);
 if (!$conn){
     echo "Connection Failed!";
 }
-
-// Form Submit Check
 if (isset($_POST['submit'])) {
     $name        = trim($_POST['name']);
     $age         = trim($_POST['age']);
@@ -24,6 +22,7 @@ if (isset($_POST['submit'])) {
 
     if ($result) {
         echo "<script>alert('Successfully inserted');</script>";
+        header(header: "Location: show.php");
     } else {
         echo "<script>alert('Failed to insert');</script>";
     }
